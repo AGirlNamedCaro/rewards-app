@@ -17,6 +17,7 @@ RSpec.describe "Api::Users", type: :request do
         current_user = JSON.parse(response.body)
         expect(current_user['id']).to eq(user.id)
         expect(current_user['email']).to eq(user.email)
+        expect(current_user['points']).to eq(user.points)
       end
     end
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import Logo from "./shared/Logo";
 import {useUser} from "../contexts/UserContext";
+import CountUp from "react-countup";
 
 const UserDashboard = () => {
-    const {logout} = useUser();
+    const {logout, user} = useUser();
     return (
         <>
             <div className="min-h-full">
@@ -22,6 +23,16 @@ const UserDashboard = () => {
                             </button>
                         </div>
                     </div>
+                </div>
+                <div className="w-full py-4 px-8">
+                    <dl className="max-w-sm">
+                        <div
+                            className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6 border border-gray-300">
+                            <dt className="truncate text-sm font-medium text-gray-500">Current point balance</dt>
+                            <dd className="text-5xl font-extrabold tracking-tight text-orange-500"><CountUp
+                                end={user.points}/></dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
         </>
