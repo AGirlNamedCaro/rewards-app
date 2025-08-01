@@ -6,7 +6,7 @@ export default function Logo() {
             <span className="sr-only">Your Company</span>
             <img
                 alt=""
-                src="https://www.thanx.com/wp-content/uploads/2020/11/Thanx-Logo.svg"
+                src="/Thanx-Logo.svg"
                 className="h-8 w-auto"
             />
         </a>
