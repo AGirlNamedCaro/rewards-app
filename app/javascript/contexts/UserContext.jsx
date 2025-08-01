@@ -16,7 +16,34 @@ export const UserProvider = ({children}) => {
             .catch((e) => console.log(e))
     }, [])
 
-    return <UserContext.Provider value={user}>{children}</UserContext.Provider>
+    const getCsrfToken = () => {
+        const el = document.querySelector('meta[name="csrf-token"]');
+        return el ? el.getAttribute("content") : "";
+    };
+
+    const logout = async () => {
+        try {
+            await axios.delete("/users/sign_out", {
+                headers: {
+                    "X-CSRF-Token": getCsrfToken(),
+                    "Accept": "application/json",
+                },
+                withCredentials: true
+            })
+            setUser(null)
+            window.location.href = "/";
+        } catch (error) {
+            console.error("Logout failed:", error)
+        }
+    }
+
+    const value = {
+        user,
+        loading,
+        logout
+    }
+
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }
 
 export const useUser = () => useContext(UserContext)

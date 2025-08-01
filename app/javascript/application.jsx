@@ -5,8 +5,7 @@ import {UserProvider, useUser} from "./contexts/UserContext";
 import UserDashboard from "./components/UserDashboard";
 
 const App = () => {
-    const user = useUser()
-    console.log(user)
+    const {user} = useUser()
     return user ? <UserDashboard/> : <Welcome/>
 }
 document.addEventListener('DOMContentLoaded', () => {
