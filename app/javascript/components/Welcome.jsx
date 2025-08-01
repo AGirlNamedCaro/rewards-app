@@ -26,12 +26,12 @@ const Welcome = () => {
                                     </h1>
                                     <div className="mt-10 flex items-center gap-x-6">
                                         <a
-                                            href="#"
+                                            href="/users/sign_in"
                                             className="primary-button"
                                         >
                                             Log in
                                         </a>
-                                        <a href="#"
+                                        <a href="/users/sign_up"
                                            className="text-lg font-semibold text-blue-800 hover:scale-110 duration-300 ease-in">
                                             Sign up <span aria-hidden="true">→</span>
                                         </a>
