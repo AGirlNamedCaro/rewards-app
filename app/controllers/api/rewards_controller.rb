@@ -1,7 +1,6 @@
 module Api
-  class RewardsController < ApplicationController
+  class RewardsController < Api::ApplicationController
     before_action :authenticate_user!
-    include Pagy::Backend
 
     def index
       pagy, rewards = pagy(Reward.includes(:store).order(created_at: :desc))
@@ -9,3 +8,4 @@ module Api
     end
   end
 end
+
