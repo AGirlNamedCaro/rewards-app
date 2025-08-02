@@ -28,7 +28,7 @@ const UserDashboard = () => {
                 </div>
                 <div className="w-full py-4 px-8">
                     <div className="max-w-sm">
-                        <PointsBalanceCard points={user.points}/>
+                        <PointsBalanceCard points={user.points_balance}/>
                     </div>
                     <Rewards/>
                 </div>

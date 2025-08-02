@@ -8,9 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create!(
+user = User.create!(
   email: "user@example.com",
-  password: "password",
+  password: "password"
 )
 
 store = Store.create!(
@@ -58,4 +58,9 @@ rewards.each do |data|
     filename: data[:image_file],
     content_type: "image/#{File.extname(data[:image_file]).delete('.')}"
   )
+
+  reward.save!
 end
+
+redemption = Redemption.create!(user: user, reward: Reward.first, points_spent: 1000, description: "Sign up bonus")
+PointTransaction.create!(user: user, points: 1000, redemption: redemption)
