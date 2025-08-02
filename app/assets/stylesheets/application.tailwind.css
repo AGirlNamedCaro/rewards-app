@@ -12,6 +12,10 @@
     @apply bg-teal-500 px-8 py-3.5 text-lg font-semibold text-white shadow-sm hover:bg-teal-400 active:bg-teal-700 cursor-pointer
 }
 
+.tertiary-button {
+    @apply relative flex items-center justify-center rounded-md border border-transparent bg-orange-400 px-8 py-2 text-sm font-medium text-white hover:bg-orange-300 active:bg-orange-500
+}
+
 .input-field {
     @apply block w-full rounded-md bg-white px-3 py-2.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue-800 sm:text-sm/6
 }

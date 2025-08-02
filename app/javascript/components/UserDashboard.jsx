@@ -1,13 +1,15 @@
 import React from 'react'
 import Logo from "./shared/Logo";
 import {useUser} from "../contexts/UserContext";
-import CountUp from "react-countup";
+import Rewards from "./Rewards";
+import PointsBalanceCard from "./PointsBalanceCard";
 
 const UserDashboard = () => {
     const {logout, user} = useUser();
+
     return (
         <>
-            <div className="min-h-full">
+            <div className="min-h-screen bg-gray-50">
                 <div className="border-b border-gray-200 bg-white">
                     <div className="w-full px-4 sm:px-6 lg:px-8 py-2">
                         <div className="flex h-16 justify-between">
@@ -18,21 +20,17 @@ const UserDashboard = () => {
                             </div>
                             <button
                                 onClick={logout}
-                                className="secondary-button">
+                                className="primary-button">
                                 Sign Out
                             </button>
                         </div>
                     </div>
                 </div>
                 <div className="w-full py-4 px-8">
-                    <dl className="max-w-sm">
-                        <div
-                            className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6 border border-gray-300">
-                            <dt className="truncate text-sm font-medium text-gray-500">Current point balance</dt>
-                            <dd className="text-5xl font-extrabold tracking-tight text-orange-500"><CountUp
-                                end={user.points}/></dd>
-                        </div>
-                    </dl>
+                    <div className="max-w-sm">
+                        <PointsBalanceCard points={user.points}/>
+                    </div>
+                    <Rewards/>
                 </div>
             </div>
         </>

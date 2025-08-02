@@ -3,6 +3,7 @@ import {createRoot} from 'react-dom/client'
 import Welcome from './components/Welcome'
 import {UserProvider, useUser} from "./contexts/UserContext";
 import UserDashboard from "./components/UserDashboard";
+import {RewardsProvider} from "./contexts/RewardsContext";
 
 const App = () => {
     const {user} = useUser()
@@ -13,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = createRoot(container)
     root.render(
         <UserProvider>
-            <App/>
+            <RewardsProvider>
+                <App/>
+            </RewardsProvider>
         </UserProvider>
     )
 })
