@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from "./shared/Image";
 import {useRewards} from "../contexts/RewardsContext";
+
 const RewardCard = ({reward}) => {
     const {redeemReward} = useRewards()
 

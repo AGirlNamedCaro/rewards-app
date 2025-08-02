@@ -8,7 +8,7 @@ const RewardsContext = createContext(null)
 export const RewardsProvider = ({children}) => {
     const [rewards, setRewards] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
-    const { setUser } = useUser()
+    const {setUser} = useUser()
 
     useEffect(() => {
         axios.get("/api/rewards")
@@ -22,16 +22,19 @@ export const RewardsProvider = ({children}) => {
 
     const redeemReward = async (rewardId) => {
         try {
-            await axios.post("/api/redemptions", { reward_id: rewardId });
+            const response = await axios.post("/api/redemptions", {reward_id: rewardId});
+            setRewards((prev) => {
+                return (prev ?? []).filter((reward) => reward.id !== rewardId);
+            });
+
             const res = await axios.get("/api/current_user");
             setUser(res.data);
-            toast.success("Reward redeemed successfully!")
+            toast.success("Reward redeemed successfully!");
 
         } catch (err) {
             toast.error("Redemption failed", err);
         }
     };
-
 
 
     const value = {
