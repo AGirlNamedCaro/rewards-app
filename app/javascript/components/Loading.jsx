@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Loading() {
+const Loading = () => {
     return (
         <div
             className="flex-1 flex flex-col items-center justify-center relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -21,3 +21,5 @@ export default function Loading() {
         </div>
     )
 }
+
+export default Loading
