@@ -20,12 +20,6 @@ RSpec.describe "Api::Users", type: :request do
         expect(current_user['points']).to eq(user.points)
       end
     end
-
-    it "returns a 401 if not authenticated" do
-      subject
-      logout(:user)
-
-      expect(response).to have_http_status(401)
-    end
+    include_context "unauthenticated user"
   end
 end
