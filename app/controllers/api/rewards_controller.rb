@@ -1,8 +1,8 @@
 module Api
   class RewardsController < Api::ApplicationController
     def index
-      pagy, rewards = pagy(Reward.includes(:store).order(created_at: :desc))
-      render json: { rewards: ActiveModelSerializers::SerializableResource.new(rewards, each_serializer: RewardSerializer), pagy: pagy_metadata(pagy), status: :ok }
+      pagy, available_rewards = pagy(Reward.available_for_user(current_user).includes(:store).order(created_at: :desc))
+      render json: { rewards: ActiveModelSerializers::SerializableResource.new(available_rewards, each_serializer: RewardSerializer), pagy: pagy_metadata(pagy), status: :ok }
     end
   end
 end
