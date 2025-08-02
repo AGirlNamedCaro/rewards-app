@@ -5,13 +5,13 @@ const UserContext = createContext(null)
 
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState(null)
-    const [loading, isLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         axios.get("/api/current_user")
             .then((res) => {
                 setUser(res.data)
-                isLoading(false)
+                setIsLoading(false)
             })
             .catch((e) => console.log(e))
     }, [])
@@ -39,7 +39,7 @@ export const UserProvider = ({children}) => {
 
     const value = {
         user,
-        loading,
+        isLoading,
         logout
     }
 

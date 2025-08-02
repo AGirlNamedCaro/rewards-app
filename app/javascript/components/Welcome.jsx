@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from "./shared/Logo";
-import PatternBackground from "./PatternBackground";
 import Image from "./shared/Image";
+import PatternBackground from "./PatternBackground";
 
 const Welcome = () => {
     return (
