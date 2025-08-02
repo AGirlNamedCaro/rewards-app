@@ -1,7 +1,9 @@
-class Api::UsersController < ApplicationController
-  before_action :authenticate_user!
+module Api
+  class Api::UsersController < ApplicationController
+    before_action :authenticate_user!
 
-  def current
-    render json: current_user
+    def current
+      render json: current_user
+    end
   end
 end
