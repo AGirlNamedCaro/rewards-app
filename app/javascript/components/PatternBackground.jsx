@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PatternBackground() {
+const PatternBackground = () => {
     return (
         <>
             <svg
@@ -43,3 +43,5 @@ export default function PatternBackground() {
         </>
     )
 }
+
+export default PatternBackground
