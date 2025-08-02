@@ -1,9 +1,11 @@
 import React from 'react'
 import Image from "./shared/Image";
-
+import {useRewards} from "../contexts/RewardsContext";
 const RewardCard = ({reward}) => {
+    const {redeemReward} = useRewards()
+
     return (
-        <div key={reward.id}>
+        <div>
             <div className="relative">
                 <div className="relative h-[17.5rem] w-full overflow-hidden rounded-lg">
                     <Image src={reward.image_url} alt={`Image for ${reward.title}`}/>
@@ -19,12 +21,12 @@ const RewardCard = ({reward}) => {
                 </div>
             </div>
             <div className="mt-6">
-                <a
-                    href="#"
+                <button
+                    onClick={() => redeemReward(reward.id)}
                     className="tertiary-button"
                 >
                     Redeem
-                </a>
+                </button>
             </div>
         </div>
     )

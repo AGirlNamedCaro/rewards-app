@@ -4,6 +4,8 @@ import Welcome from './components/Welcome'
 import {UserProvider, useUser} from "./contexts/UserContext";
 import UserDashboard from "./components/UserDashboard";
 import {RewardsProvider} from "./contexts/RewardsContext";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
     const {user} = useUser()
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     root.render(
         <UserProvider>
             <RewardsProvider>
+                <ToastContainer />
                 <App/>
             </RewardsProvider>
         </UserProvider>

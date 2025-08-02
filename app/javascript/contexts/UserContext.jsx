@@ -39,6 +39,7 @@ export const UserProvider = ({children}) => {
 
     const value = {
         user,
+        setUser,
         isLoading,
         logout
     }
