@@ -25,7 +25,7 @@ const Rewards = () => {
                             </div>
                         )}
                     </div>
-                    {pagination && <Pagination pagination={pagination} onPageChange={setPage}/> }
+                    {pagination && <Pagination pagination={pagination} onPageChange={setPage}/>}
                 </div>
             )}
         </div>
