@@ -2,6 +2,7 @@ import React, {createContext, useContext, useEffect, useState} from "react"
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useUser} from "./UserContext";
+import {useRedemption} from "./RedemptionContext";
 
 const RewardsContext = createContext(null)
 
@@ -9,6 +10,7 @@ export const RewardsProvider = ({children}) => {
     const [rewards, setRewards] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const {setUser} = useUser()
+    const {setRedemptions} = useRedemption()
 
     useEffect(() => {
         axios.get("/api/rewards")
@@ -29,6 +31,8 @@ export const RewardsProvider = ({children}) => {
 
             const res = await axios.get("/api/current_user");
             setUser(res.data);
+            const redemptionResponse = await axios.get("/api/redemptions");
+            setRedemptions(redemptionResponse.data.redemptions);
             toast.success("Reward redeemed successfully!");
 
         } catch (err) {

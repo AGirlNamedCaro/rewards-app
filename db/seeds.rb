@@ -62,5 +62,5 @@ rewards.each do |data|
   reward.save!
 end
 
-redemption = Redemption.create!(user: user, reward: Reward.first, points_spent: 1000, description: "Sign up bonus")
+redemption = Redemption.create!(user: user, reward: Reward.first, points_spent: 1000, description: "Sign up bonus", redeemed_at: Time.current)
 PointTransaction.create!(user: user, points: 1000, redemption: redemption)
