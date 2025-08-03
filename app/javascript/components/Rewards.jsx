@@ -4,9 +4,10 @@ import {useRewards} from "../contexts/RewardsContext";
 import RewardCard from "./RewardCard";
 import NoRewardsAvailable from "./NoRewardsAvailable";
 import PatternBackground from "./PatternBackground";
+import Pagination from "./shared/Pagination";
 
 const Rewards = () => {
-    const {rewards, isLoading} = useRewards()
+    const {rewards, isLoading, pagination, setPage} = useRewards()
     return (
         <div className="py-4">
             {isLoading ? <Loading text="Rewards"/> : (
@@ -24,6 +25,7 @@ const Rewards = () => {
                             </div>
                         )}
                     </div>
+                    {pagination && <Pagination pagination={pagination} onPageChange={setPage}/> }
                 </div>
             )}
         </div>
