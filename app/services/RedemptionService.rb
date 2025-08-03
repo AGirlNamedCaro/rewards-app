@@ -9,9 +9,10 @@ class RedemptionService
   end
 
   def call
-    validate_redemption!
-
     ActiveRecord::Base.transaction do
+      locked_user = User.lock.find(@user.id)
+      @user = locked_user
+      validate_redemption!
       redemption = create_redemption
       deduct_points(redemption)
       redemption

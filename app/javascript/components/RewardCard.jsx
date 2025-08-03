@@ -15,6 +15,7 @@ const RewardCard = ({reward}) => {
                     <div className="flex item-start justify-between">
                         <div>
                             <h2 className="text-sm font-medium text-gray-900">{reward.title}</h2>
+                            <p className="text-teal-500 text-sm">{reward?.store?.name}</p>
                             <p>{reward.description}</p>
                         </div>
                         <p className="text-sm font-semibold text-orange-500">{reward.points_required}pts</p>

@@ -22,4 +22,5 @@ Basic rewards redemption web app that allows a user to do the following:
   - Pre-created user info:
     - `email: "user@example.com",
       password: "password",`
+    - This user will already have 1000 points in their balance
 - To start server run `bin/dev`
