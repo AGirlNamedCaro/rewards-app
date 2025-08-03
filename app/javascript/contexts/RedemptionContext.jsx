@@ -6,15 +6,18 @@ const RedemptionContext = createContext(null)
 export const RedemptionProvider = ({children}) => {
     const [redemptions, setRedemptions] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    const [pagination, setPagination] = useState(null)
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
-        fetchRedemptions()
-    }, [])
+        fetchRedemptions(page)
+    }, [page])
 
-    const fetchRedemptions = () => {
-        axios.get("/api/redemptions")
+    const fetchRedemptions = (page) => {
+        axios.get(`/api/redemptions?page=${page}`)
             .then((res) => {
                 setRedemptions(res.data.redemptions)
+                setPagination(res.data.pagy)
                 setIsLoading(false)
             })
             .catch((e) => console.log(e))
@@ -23,7 +26,9 @@ export const RedemptionProvider = ({children}) => {
     const value = {
         redemptions,
         isLoading,
-        setRedemptions
+        setRedemptions,
+        pagination,
+        setPage
     }
 
     return <RedemptionContext.Provider value={value}>{children}</RedemptionContext.Provider>
