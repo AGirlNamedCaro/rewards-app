@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Api::Redemptions", type: :request do
-
   describe "GET /index" do
     let(:user) { create(:user) }
 
@@ -13,7 +12,7 @@ RSpec.describe "Api::Redemptions", type: :request do
         login_as(user, scope: :user)
       end
 
-      let!(:newest_redemption) { create(:redemption, user:user) }
+      let!(:newest_redemption) { create(:redemption, user: user) }
 
       it "returns available paginated redemptions newest to oldest" do
         subject
